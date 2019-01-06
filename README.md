@@ -1,8 +1,10 @@
 # react-gladx
 
+[![NPM](https://img.shields.io/npm/v/react-gladx.svg)](https://www.npmjs.com/package/react-gladx) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
+
 Don't you dare say it! Don't you dare say this is NOT what the Context API was intended for, mmKay.
 -----
-
 If you're like me, then you are fed up with the boilerplate code Redux needed to do even the most simple of tasks. This module
  intends to help solve problem. 
 if we could let our components update the store with 
@@ -19,12 +21,6 @@ if we could let our components update the store with
 > Single Store  
 
 
-First Header | Second Header
------------- | -------------
-Content from cell 1 | Content from cell 2
-Content in the first column | Content in the second column
-
-[![NPM](https://img.shields.io/npm/v/react-gladx.svg)](https://www.npmjs.com/package/react-gladx) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
@@ -58,10 +54,9 @@ Utilize the `Ajax` component for rendering fetching and rendering a single compo
 ```jsx
 import {Ajax, REQUEST_METHODS} from 'react-gladx'
 
-render(){
-  return <Ajax storeProp={'users'} requestMethod={REQUEST_METHODS.GET}
-                      content={result => <Users keys={result.keys} data={result.data}/> }/>
-}
+<Ajax storeProp={'users'} 
+      requestMethod={REQUEST_METHODS.GET}
+      content={result => <Users keys={result.keys} data={result.data}/> }/>
 ```
 
 Utilize the `AjaxButton` component to execute actions that update store data. 
@@ -69,16 +64,14 @@ Utilize the `AjaxButton` component to execute actions that update store data.
 ```jsx
 import {AjaxButton, REQUEST_METHODS, STORE_ACTIONS} from 'react-gladx'
 
-render(){
-                  return <AjaxButton storeProp={'users'}
-                                     endpoint={'user/add'}
-                                     action={STORE_ACTIONS.ADD}
-                                     onRequestSuccess={()=>this.setState({hide})}
-                                     requestData={{name:'Bob'}}
-                                     loader={<Button loading={true}/>}
-                                     content={executeRequest =><Button loading={false} onClick={executeRequest} />}
-                         />
-}
+<AjaxButton 
+  storeProp={'users'}
+  endpoint={'user/add'}
+  action={STORE_ACTIONS.ADD}
+  onRequestSuccess={()=>this.setState({hide})}
+  requestData={{name:'Bob'}}
+  loader={<Button loading={true}/>}
+  content={executeRequest =><Button loading={false} onClick={executeRequest} />} />
 ```
 
 
@@ -87,15 +80,26 @@ Access the store/context using the `GladXContext` consumer.
 ```jsx
 import {GladXContext} from 'react-gladx'
 
-render(){
-                 return (
-                 <GladXContext.Consumer>
-                         {({actions, store, requestMethods, defaultComponents}) => <Component/>}
-                         </GladXContext.Consumer>
-                 )
-}
+<GladXContext.Consumer>
+  {({actions, store, requestMethods, defaultComponents}) => <Component/>}
+</GladXContext.Consumer>
 ```
 
+# API
+
+> GladX Component
+
+property | default | usage
+------------ | ------------- | -----------
+Content from cell 1 | Content from cell 2 | sd
+Content in the first column | Content in the second column | sdef
+
+> GladX Component
+
+property | default | usage
+------------ | ------------- | -----------
+Content from cell 1 | Content from cell 2 | sd
+Content in the first column | Content in the second column | sdef
 
 ## License
 
