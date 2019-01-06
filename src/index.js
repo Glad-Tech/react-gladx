@@ -96,7 +96,7 @@ GladX.propTypes = {
 export class AjaxButton extends Component {
 
   render() {
-    const {storeProp, action, schemaKey, endpoint, requestMethod, loader, failure} = this.props;
+    const {storeProp, action, endpoint, requestMethod, loader, failure} = this.props;
     return (
       <GladXContext.Consumer>
         {({actions, store, requestMethods, defaultComponents}) => <StateManager {...this.props}
@@ -104,7 +104,6 @@ export class AjaxButton extends Component {
                                                                                 defaultLoading={false}
                                                                                 executeRequestOnMount={false}
                                                                                 endpoint={endpoint ? endpoint : storeProp}
-                                                                                schemaKey={schemaKey ? schemaKey : storeProp}
                                                                                 updateStore={actions[action]}
                                                                                 data={null}
                                                                                 failure={failure ? failure : defaultComponents.failure}
@@ -124,7 +123,6 @@ AjaxButton.propTypes = {
   requestMethod: PropTypes.string,
   action: PropTypes.string,
   storeProp: PropTypes.string.isRequired,
-  schemaKey: PropTypes.string,
   content: PropTypes.any.isRequired,
   maxDuration: PropTypes.number,
   onRequestError: PropTypes.func,
@@ -141,13 +139,12 @@ AjaxButton.defaultProps = {
 export class Ajax extends Component {
 
   render() {
-    const {storeProp, action, schemaKey, endpoint, requestMethod, executeRequestOnMount, loader, failure} = this.props;
+    const {storeProp, action, endpoint, requestMethod, executeRequestOnMount, loader, failure} = this.props;
     return (
       <GladXContext.Consumer>
         {({actions, store, requestMethods, defaultComponents}) => <StateManager {...this.props}
                                                                                 requestMethod={requestMethods[requestMethod]}
                                                                                 endpoint={endpoint ? endpoint : storeProp}
-                                                                                schemaKey={schemaKey ? schemaKey : storeProp}
                                                                                 updateStore={actions[action]}
                                                                                 data={store[storeProp]}
                                                                                 executeRequestOnMount={executeRequestOnMount === true || store[storeProp] === null}
@@ -169,7 +166,6 @@ Ajax.propTypes = {
   loader: PropTypes.any,
   storeProp: PropTypes.string.isRequired,
   content: PropTypes.any.isRequired,
-  schemaKey: PropTypes.string,
   defaultLoading: PropTypes.bool,
   maxDuration: PropTypes.number,
   onRequestError: PropTypes.func,
@@ -197,22 +193,22 @@ class StateManager extends Component {
   }
 
   normalizeResponse = response => {
-    const {schemaKey} = this.props;
+    const {storeProp} = this.props;
 
-    const propSchema = new schema.Entity(schemaKey);
+    const propSchema = new schema.Entity(storeProp);
     return normalize(response, new schema.Array(propSchema));
   }
 
 
   handleResponse = response => {
-    const {storeProp, updateStore, schemaKey} = this.props;
+    const {storeProp, updateStore} = this.props;
 
     if (Array.isArray(response)) {
 
       const normalized = this.normalizeResponse(response);
       updateStore(storeProp, {
         keys: normalized.result,
-        data: normalized.entities[schemaKey]
+        data: normalized.entities[storeProp]
       });
 
     } else {
@@ -319,7 +315,6 @@ StateManager.propTypes = {
   requestData: PropTypes.any,
   requestMethod: PropTypes.func.isRequired,
   storeProp: PropTypes.string.isRequired,
-  schemaKey: PropTypes.string.isRequired,
   data: PropTypes.any,
   maxDuration: PropTypes.number.isRequired,
   failure: PropTypes.any.isRequired,

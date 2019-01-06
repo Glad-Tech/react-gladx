@@ -89,17 +89,66 @@ import {GladXContext} from 'react-gladx'
 
 > GladX Component
 
+property | type:default | required | usage
+------------ | ------------- | ----------- | ----------
+initialState | object:{} |  | Same concept as Redux's initial state.
+failure | function:null |  | Function intended to return a component to be rendered in case of failure. 
+loader | component:null |  | Component to be rendered while in `loading` state.
+get | promise:null |  | Ajax request. Should return data to be used when updating the store.
+post | promise:null |  | Ajax request. Should return data to be used when updating the store.
+
+> Ajax Component
+
+property | type:default | required | usage
+------------ | ------------- | ----------- | ----------
+storeProp | string:null | | sdfsdfsfd
+endpoint | string:`storeProp`  | | /users/delete/`{id}`
+requestData | any:null |  | Data to be used in ajax request 
+requestMethod | string:POST |  | Ajax method GET/POST
+action | string:UPDATE |  | sdfsdfsfd
+loader | string:null |  | Override default loader.
+failure | function:null |  | Override default failure.
+defaultLoading | string:null |  | sdfsdfsfd
+maxDuration | string:null |  | sdfsdfsfd
+onRequestError | string:null |  | sdfsdfsfd
+onRequestSuccess | string:null |  | sdfsdfsfd
+allowRetry | string:null |  | sdfsdfsfd
+executeRequestOnMount | string:null |  | sdfsdfsfd
+
+endpoint: PropTypes.string,
+  requestData: PropTypes.any,
+  requestMethod: PropTypes.string,
+  action: PropTypes.string,
+  failure: PropTypes.any,
+  loader: PropTypes.any,
+  storeProp: PropTypes.string.isRequired,
+  content: PropTypes.any.isRequired,
+  schemaKey: PropTypes.string,
+  defaultLoading: PropTypes.bool,
+  maxDuration: PropTypes.number,
+  onRequestError: PropTypes.func,
+  onRequestSuccess: PropTypes.func,
+  allowRetry: PropTypes.bool,
+  executeRequestOnMount: PropTypes.bool,
+
+> AjaxButton Component
+
 property | default | usage
 ------------ | ------------- | -----------
-Content from cell 1 | Content from cell 2 | sd
-Content in the first column | Content in the second column | sdef
+initialState | {} | Same concept as Redux's initial state
+initialState | ddsdfsd | sdfsdfsfd
+initialState | ddsdfsd | sdfsdfsfd
+initialState | ddsdfsd | sdfsdfsfd
+initialState | ddsdfsd | sdfsdfsfd
+initialState | ddsdfsd | sdfsdfsfd
+initialState | ddsdfsd | sdfsdfsfd
+initialState | ddsdfsd | sdfsdfsfd
+initialState | ddsdfsd | sdfsdfsfd
+initialState | ddsdfsd | sdfsdfsfd
+initialState | ddsdfsd | sdfsdfsfd
+initialState | ddsdfsd | sdfsdfsfd
 
-> GladX Component
 
-property | default | usage
------------- | ------------- | -----------
-Content from cell 1 | Content from cell 2 | sd
-Content in the first column | Content in the second column | sdef
 
 ## License
 
