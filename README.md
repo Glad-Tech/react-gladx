@@ -5,10 +5,8 @@
 
 Don't you dare say it! Don't you dare say this is NOT what the Context API was intended for, mmKay.
 -----
-If you're like me, then you are fed up with the boilerplate code Redux needed to do even the most simple of tasks. This module
+If you're like me, then you are fed up with the boilerplate code Redux requires to do even the most simple of tasks. This module
  intends to help solve problem. 
-if we could let our components update the store with 
- Can we please    
 
 > Default loading and error components
 
