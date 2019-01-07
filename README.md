@@ -1,25 +1,27 @@
-Wouldn't it be nice if a component could execute an ajax request, render `loading`, `error`, and `success` states, and simultaneously update the application's store?
------
 
-# Meet react-gladx
+# react-gladx
 
 [![NPM](https://img.shields.io/npm/v/react-gladx.svg)](https://www.npmjs.com/package/react-gladx) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
+### Wouldn't it be nice if a component could execute an ajax request, render `loading`, `error`, and `success` states, and simultaneously update the application's store?
+If you're like me, then you are fed up with the boilerplate code that many state management frameworks require to accomplish even the most simple of tasks. This package intends to 
+help ease the pain by combining ideologies from multiple state management frameworks.   
 
+# Features
 
-If you're like me, then you are fed up with the boilerplate code Redux requires to do even the most simple of tasks. This package intends to 
-help ease the pain by combining ideologies from multiple state management frameworks such as MobX, Redux, and Suspense.   
-
-> Default loading and error components
-
-> Built in array normalization 
+> Easy setup
 
 > Access and update the store from any component 
 
-> Ajax components to  
+> Anti-boilerplate ajax components  
 
-> Single Store  
+> Retry requests
+  
+> Built in array normalization 
 
+> Single store
+
+> Fast/slow network rendering options
 
 
 ## Install
@@ -42,7 +44,7 @@ ReactDOM.render(
     post={post}
     get={get}
     loader={<LoadingComponent />}
-    failure={(error) => <ErrorComponent />}
+    failure={(error) => <ErrorComponent messageToUser={error.friendlyMessage} />}
     children={<App />}
   />
   , document.getElementById('root'));
