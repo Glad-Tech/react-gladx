@@ -50,7 +50,7 @@ ReactDOM.render(
 ```
 
 
-Utilize `Ajax` for fetching and rendering components from the returned data. By default, ajax requests are executed in `onComponentDidMount` if no data exists for the `storeProp`. Use `executeRequestOnMount` to refresh store data.
+Utilize `Ajax` for fetching and rendering components from the returned data. By default, ajax requests are executed in `onComponentDidMount` ONLY if no data exists for the `storeProp`. Use `executeRequestOnMount` to refresh store data.
 
 ```jsx
 import {Ajax, REQUEST_METHODS} from 'react-gladx'
@@ -116,7 +116,7 @@ maxDuration | integer:null |  | Maximum amount of milliseconds until `loader` co
 onRequestError | function:null |  | Callback when ajax request succeeds
 onRequestSuccess | function:null |  | Callback when ajax request fails
 allowRetry | bool:null |  | Passes `executeRequest` to `failure` function allowing for customization of retry functionality.
-executeRequestOnMount | bool:null |  | For `Ajax` component only. `true` will force the ajax request to execute in `onComponentDidMount` which in turn updates the store. By default, ajax requests are executed in `onComponentDidMount` if no data exists for the `storeProp`.
+executeRequestOnMount | bool:null |  | For `Ajax` component only. `true` will force the ajax request to execute in `onComponentDidMount` which in turn updates the store. By default, ajax requests are executed in `onComponentDidMount` ONLY if no data exists for the `storeProp`.
 
 
 
