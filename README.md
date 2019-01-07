@@ -50,7 +50,7 @@ ReactDOM.render(
 ```
 
 
-Utilize `Ajax` for fetching and rendering components from the returned data.
+Utilize `Ajax` for fetching and rendering components from the returned data. By default, ajax requests are executed in `onComponentDidMount` if no data exists for the `storeProp`. Use `executeRequestOnMount` to refresh store data.
 
 ```jsx
 import {Ajax, REQUEST_METHODS} from 'react-gladx'
@@ -93,33 +93,30 @@ import {GladXContext} from 'react-gladx'
 
 > GladX Component
 
-GladX 
----------- | -----
 property | type| required | usage
 ------------ | ------------- | ----------- | ----------
-initialState | object | [x] | Same concept as Redux's initial state.
+initialState | object | [x] | Default state of store where the object's keys represent the data elements the app will using consuming.
 failure | function | [x] | Function intended to return a component to be rendered in case of failure. 
-loader | component | [x] | Component to be rendered while in `loading` state.
+loader | component | [x] | Component to be rendered while in the `loading` state.
 get | promise | [x] | Ajax request. Should return data to be used when updating the store.
 post | promise | [x] | Ajax request. Should return data to be used when updating the store.
 
-> Ajax Component
+> Ajax & AjaxButton Component
 
 property | type:default | required | usage
 ------------ | ------------- | ----------- | ----------
-storeProp | string:null | | Ajax method GET/POST
-endpoint | string:`storeProp`  | | /users/delete/`{id}`
+storeProp | string:null | [x] | Used when determining which property to update in the store. Ex. `users` will update `store.users`  
+endpoint | string:`storeProp`  | [x] | Endpoint for the ajax request Ex. /users/delete/`{id}`
 requestData | any:null |  | Data to be used in ajax request 
-requestMethod | string:POST |  | Ajax method GET/POST
-action | string:UPDATE |  | Ajax method GET/POST
-loader | string:null |  | Override default loader.
-failure | function:null |  | Override default failure.
-defaultLoading | string:null |  | Ajax method GET/POST
-maxDuration | string:null |  | Ajax method GET/POST
-onRequestError | string:null |  | Ajax method GET/POST
-onRequestSuccess | string:null |  | Ajax method GET/POST
-allowRetry | string:null |  | Ajax method GET/POST
-executeRequestOnMount | string:null |  | Ajax method GET/POST
+requestMethod | string:POST |  | Ajax method type Ex. GET/POST
+action | string:UPDATE |  | Update method when ajax request has completed successfully Ex. UPDATE,ADD,DELETE
+loader | string:null |  | Override default loader component.
+failure | function:null |  | Override default failure function.
+maxDuration | integer:null |  | Maximum amount of milliseconds until `loader` component is rendered when executing ajax request. Ex. `500` spinner will not render if the ajax request finishes in less than half a second
+onRequestError | function:null |  | Callback when ajax request succeeds
+onRequestSuccess | function:null |  | Callback when ajax request fails
+allowRetry | bool:null |  | Ajax method GET/POST
+executeRequestOnMount | bool:null |  | For `Ajax` component only. `true` will force the ajax request to execute in `onComponentDidMount` which in turn updates the store. By default, ajax requests are executed in `onComponentDidMount` if no data exists for the `storeProp`.
 
 
 

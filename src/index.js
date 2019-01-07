@@ -166,7 +166,6 @@ Ajax.propTypes = {
   loader: PropTypes.any,
   storeProp: PropTypes.string.isRequired,
   content: PropTypes.any.isRequired,
-  defaultLoading: PropTypes.bool,
   maxDuration: PropTypes.number,
   onRequestError: PropTypes.func,
   onRequestSuccess: PropTypes.func,
