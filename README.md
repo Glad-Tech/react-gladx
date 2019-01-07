@@ -3,7 +3,7 @@
 [![NPM](https://img.shields.io/npm/v/react-gladx.svg)](https://www.npmjs.com/package/react-gladx) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 
-Don't you dare say it! Don't you dare say this is NOT what the Context API was intended for, mmKay.
+Don't you dare say it! Don't you dare say that state management is NOT what the Context API was intended for, mmkay.
 -----
 If you're like me, then you are fed up with the boilerplate code Redux requires to do even the most simple of tasks. This module
  intends to help solve problem. 
