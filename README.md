@@ -115,7 +115,7 @@ failure | function:null |  | Override default failure function.
 maxDuration | integer:null |  | Maximum amount of milliseconds until `loader` component is rendered when executing ajax request. Ex. `500` spinner will not render if the ajax request finishes in less than half a second
 onRequestError | function:null |  | Callback when ajax request succeeds
 onRequestSuccess | function:null |  | Callback when ajax request fails
-allowRetry | bool:null |  | Ajax method GET/POST
+allowRetry | bool:null |  | Passes `executeRequest` to `failure` function allowing for customization of retry functionality.
 executeRequestOnMount | bool:null |  | For `Ajax` component only. `true` will force the ajax request to execute in `onComponentDidMount` which in turn updates the store. By default, ajax requests are executed in `onComponentDidMount` if no data exists for the `storeProp`.
 
 
