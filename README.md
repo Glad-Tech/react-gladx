@@ -3,7 +3,7 @@
 
 [![NPM](https://img.shields.io/npm/v/react-gladx.svg)](https://www.npmjs.com/package/react-gladx) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-### Wouldn't it be nice if a component could execute an ajax request, render `loading`, `error`, and `success` states, and simultaneously update the application's store?
+## Wouldn't it be nice if a component could execute an ajax request, render `loading`, `error`, and `success` states, and simultaneously update the application's store?
 Fed up with the boilerplate code that many state management frameworks require to accomplish even the most simple of tasks? This package intends to 
 help ease the pain by combining ideologies from multiple state management frameworks.   
 
@@ -29,7 +29,7 @@ help ease the pain by combining ideologies from multiple state management framew
 npm install --save react-gladx
 ```
 
-## Usage
+## Usage [(example project)](https://github.com/Glad-Tech/react-gladx/tree/master/example)
 
 Wrap your app in the `GladX` component.
 ```jsx
@@ -50,7 +50,7 @@ ReactDOM.render(
 ```
 
 
-Utilize the `Ajax` component for fetching and rendering components from returned data.
+Utilize `Ajax` for fetching and rendering components from the returned data.
 
 ```jsx
 import {Ajax, REQUEST_METHODS} from 'react-gladx'
@@ -60,7 +60,7 @@ import {Ajax, REQUEST_METHODS} from 'react-gladx'
       content={result => <Users keys={result.keys} data={result.data}/> }/>
 ```
 
-Utilize the `AjaxButton` component to execute actions that update store data. 
+Utilize `AjaxButton` to execute actions that update store data. 
 
 ```jsx
 import {AjaxButton, REQUEST_METHODS, STORE_ACTIONS} from 'react-gladx'
@@ -88,10 +88,13 @@ import {GladXContext} from 'react-gladx'
 
 # Run the [example project](https://github.com/Glad-Tech/react-gladx/tree/master/example) for more usage details.
 
+
 # API
 
 > GladX Component
 
+GladX 
+---------- | -----
 property | type| required | usage
 ------------ | ------------- | ----------- | ----------
 initialState | object | [x] | Same concept as Redux's initial state.
