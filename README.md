@@ -15,14 +15,13 @@ help ease the pain by combining ideologies from multiple state management framew
 
 > Anti-boilerplate ajax components  
 
-> Retry requests
+> Retry failed requests
   
-> Built in array normalization 
+> Auto array normalization 
 
 > Single store
 
 > Fast/slow network rendering options
-
 
 ## Install
 
@@ -51,7 +50,7 @@ ReactDOM.render(
 ```
 
 
-Utilize the `Ajax` component for rendering fetching and rendering a single component or list.
+Utilize the `Ajax` component for fetching and rendering components from returned data.
 
 ```jsx
 import {Ajax, REQUEST_METHODS} from 'react-gladx'
@@ -87,17 +86,19 @@ import {GladXContext} from 'react-gladx'
 </GladXContext.Consumer>
 ```
 
+# Run the [example project](https://github.com/Glad-Tech/react-gladx/tree/master/example) for more usage details.
+
 # API
 
 > GladX Component
 
 property | type| required | usage
 ------------ | ------------- | ----------- | ----------
-initialState | object |  | Same concept as Redux's initial state.
-failure | function |  | Function intended to return a component to be rendered in case of failure. 
-loader | component |  | Component to be rendered while in `loading` state.
-get | promise |  | Ajax request. Should return data to be used when updating the store.
-post | promise |  | Ajax request. Should return data to be used when updating the store.
+initialState | object | [x] | Same concept as Redux's initial state.
+failure | function | [x] | Function intended to return a component to be rendered in case of failure. 
+loader | component | [x] | Component to be rendered while in `loading` state.
+get | promise | [x] | Ajax request. Should return data to be used when updating the store.
+post | promise | [x] | Ajax request. Should return data to be used when updating the store.
 
 > Ajax Component
 
